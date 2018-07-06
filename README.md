@@ -12,3 +12,21 @@ mainly as the other vagrant boxes are running a modified version of Act, rather
 than the version deployed to production at present. Also the current vagrant
 options are using a custom OS image, which limits updating and fixing issues on
 the box...
+
+## Setup
+
+Checkout this repo, then clone the main Act repo into this repository (Could
+use submodules, however this limits updating things)
+
+```
+git clone git@github.com:book/Act.git
+```
+
+You will also want a conference or two to host on this - or atleast the one
+you're editing
+
+```
+./bin/get-conference.pl tpc-2018-glasgow
+```
+
+

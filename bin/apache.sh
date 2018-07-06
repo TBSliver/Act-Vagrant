@@ -28,3 +28,5 @@ cd ../libapreq-1.34
 /opt/perl-5.12/bin/perl Makefile.PL
 make CCFLAGS+="-std=gnu89"
 sudo make CCFLAGS+="-std=gnu89" install
+
+sudo echo 'Include "/vagrant/etc/httpd.conf"' >> /usr/local/apache/conf/httpd.conf
