@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-PERL_PREFIX=opt/perl-5.12/bin
+PERL_PREFIX=/opt/perl-5.12/bin
 
 PERL=$PERL_PREFIX/perl
 CPAN=$PERL_PREFIX/cpan
@@ -8,8 +8,27 @@ CPANM=$PERL_PREFIX/cpanm
 
 sudo $CPANM Module::Install
 
-cd /vagrant/Act
+cd /act
 
 sudo $CPANM --installdeps .
 
-ACTHOME=/vagrant/ACTHOME /opt/perl-5.12/bin/perl -Ilib bin/dbinit | sudo -u postgres psql act
+export PGPASSWORD=act
+ACTHOME=$HOME /opt/perl-5.12/bin/perl -Ilib bin/dbinit | psql -U act act
+
+cd ~
+
+# All the files that need symlinking in
+mkdir wwwdocs
+mkdir actdocs
+ln -s /act/po po
+ln -s /act/templates templates
+ln -s /act/wwwdocs/* wwwdocs/
+
+ln -s /vagrant/etc/conf conf
+
+# Conference specific
+ln -s /conferences/tpc-2018-glasgow/actdocs actdocs/tpc-2018-glasgow
+ln -s /conferences/tpc-2018-glasgow/wwwdocs wwwdocs/tpc-2018-glasgow
+
+ln -s /conferences/tpc-2017-amsterdam/actdocs actdocs/tpc-2017-amsterdam
+ln -s /conferences/tpc-2017-amsterdam/wwwdocs wwwdocs/tpc-2017-amsterdam

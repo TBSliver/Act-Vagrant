@@ -15,18 +15,27 @@ the box...
 
 ## Setup
 
-Checkout this repo, then clone the main Act repo into this repository (Could
-use submodules, however this limits updating things)
+To use this, you will need to set up a couple of other repos - this repository only includes the code for spinning up an environment which can run the codebase. The basic layout is:
 
 ```
+Parent Folder
+|-- Act-Vagrant (This repo)
+|-- Act (The main Act codebase)
+|-- conferences
+    |-- tpc-2018-glasgow
+    |-- tpc-2017-amsterdam
+    ...
+```
+
+to set this up, the following commands will suffice (A setup script will be incoming eventually when things settle down).
+
+```
+mkdir Act-Dev
+cd Act-Dev
+git clone $Act-Vagrant
 git clone git@github.com:book/Act.git
+mkdir conferences
+git clone git@github.com:Act-Conferenes/tpc-2018-glasgow.git conferences/tpc-2018-glasgow
 ```
 
-You will also want a conference or two to host on this - or atleast the one
-you're editing
-
-```
-./bin/get-conference.pl tpc-2018-glasgow
-```
-
-
+The Act, and conferences folders get mounted into the VM as required, so must be present.

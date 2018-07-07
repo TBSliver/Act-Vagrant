@@ -1,5 +1,8 @@
 #! /usr/bin/env bash
 
+mkdir apache-build
+cd apache-build
+
 wget https://archive.apache.org/dist/httpd/apache_1.3.42.tar.gz
 wget https://www.apache.org/dist/perl/mod_perl-1.31.tar.gz
 wget https://archive.apache.org/dist/httpd/libapreq/libapreq-1.34.tar.gz
@@ -8,6 +11,7 @@ tar xf apache_1.3.42.tar.gz
 tar xf mod_perl-1.31.tar.gz
 tar xf libapreq-1.34.tar.gz
 
+# Thank you Theo for a useful patch! :D
 patch -p0 < /vagrant/etc/apache_1.3.42.patch
 
 cd mod_perl-1.31
@@ -29,4 +33,4 @@ cd ../libapreq-1.34
 make CCFLAGS+="-std=gnu89"
 sudo make CCFLAGS+="-std=gnu89" install
 
-sudo echo 'Include "/vagrant/etc/httpd.conf"' >> /usr/local/apache/conf/httpd.conf
+echo 'Include "/vagrant/etc/httpd.conf"' | sudo tee --append /usr/local/apache/conf/httpd.conf
