@@ -34,3 +34,5 @@ make CCFLAGS+="-std=gnu89"
 sudo make CCFLAGS+="-std=gnu89" install
 
 echo 'Include "/vagrant/etc/httpd.conf"' | sudo tee --append /usr/local/apache/conf/httpd.conf
+
+sudo sed -i "s/^\(User\|Group\).*$/\1 $USER/" /usr/local/apache/conf/httpd.conf

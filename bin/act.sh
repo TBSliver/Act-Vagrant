@@ -14,11 +14,12 @@ sudo $CPANM --installdeps .
 
 export PGPASSWORD=act
 ACTHOME=$HOME /opt/perl-5.12/bin/perl -Ilib bin/dbinit | psql -U act act
+/opt/perl-5.12/bin/wiki-toolkit-setupdb --type postgres --name actwiki --user act --pass act
 
 cd ~
 
 # All the files that need symlinking in
-mkdir wwwdocs
+mkdir -p wwwdocs/photos
 mkdir actdocs
 ln -s /act/po po
 ln -s /act/templates templates
@@ -32,3 +33,5 @@ ln -s /conferences/tpc-2018-glasgow/wwwdocs wwwdocs/tpc-2018-glasgow
 
 ln -s /conferences/tpc-2017-amsterdam/actdocs actdocs/tpc-2017-amsterdam
 ln -s /conferences/tpc-2017-amsterdam/wwwdocs wwwdocs/tpc-2017-amsterdam
+
+sudo /usr/local/apache/bin/apachectl start
