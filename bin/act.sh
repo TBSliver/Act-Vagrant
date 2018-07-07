@@ -28,10 +28,6 @@ ln -s /act/wwwdocs/* wwwdocs/
 ln -s /vagrant/etc/conf conf
 
 # Conference specific
-ln -s /conferences/tpc-2018-glasgow/actdocs actdocs/tpc-2018-glasgow
-ln -s /conferences/tpc-2018-glasgow/wwwdocs wwwdocs/tpc-2018-glasgow
-
-ln -s /conferences/tpc-2017-amsterdam/actdocs actdocs/tpc-2017-amsterdam
-ln -s /conferences/tpc-2017-amsterdam/wwwdocs wwwdocs/tpc-2017-amsterdam
+/vagrant/etc/mount-conferences.sh
 
 sudo /usr/local/apache/bin/apachectl start
