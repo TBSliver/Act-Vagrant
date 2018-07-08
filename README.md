@@ -35,7 +35,14 @@ cd Act-Dev
 git clone $Act-Vagrant
 git clone git@github.com:book/Act.git
 mkdir conferences
-git clone git@github.com:Act-Conferenes/tpc-2018-glasgow.git conferences/tpc-2018-glasgow
+git clone git@github.com:Act-Conferences/tpc-2018-glasgow.git conferences/tpc-2018-glasgow
+git clone git@github.com:Act-Conferences/tpc-2017-amsterdam.git conferences/tpc-2017-amsterdam
 ```
 
-The Act, and conferences folders get mounted into the VM as required, so must be present.
+The `Act` and `conferences` folders get mounted into the VM as required, so must be present.
+
+The last step is to modify the list of conferences in `etc/conf/act.ini` in this repo. So, using the two conferences we specified earlier, change the line to:
+
+```
+conferences = tpc-2018-glasgow tpc-2017-amsterdam
+```
