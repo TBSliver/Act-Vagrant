@@ -15,7 +15,9 @@ the box...
 
 ## Setup
 
-To use this, you will need to set up a couple of other repos - this repository only includes the code for spinning up an environment which can run the codebase. The basic layout is:
+To use this, you will need to set up a couple of other repos - this repository
+only includes the code for spinning up an environment which can run the
+codebase. The basic layout is:
 
 ```
 Parent Folder
@@ -27,7 +29,8 @@ Parent Folder
     ...
 ```
 
-to set this up, the following commands will suffice (A setup script will be incoming eventually when things settle down).
+to set this up, the following commands will suffice (A setup script will be
+  incoming eventually when things settle down).
 
 ```
 mkdir Act-Dev
@@ -39,9 +42,12 @@ git clone git@github.com:Act-Conferences/tpc-2018-glasgow.git conferences/tpc-20
 git clone git@github.com:Act-Conferences/tpc-2017-amsterdam.git conferences/tpc-2017-amsterdam
 ```
 
-The `Act` and `conferences` folders get mounted into the VM as required, so must be present.
+The `Act` and `conferences` folders get mounted into the VM as required, so
+must be present.
 
-The last step is to modify the list of conferences in `etc/conf/act.ini` in this repo. So, using the two conferences we specified earlier, change the line to:
+The last step is to modify the list of conferences in `etc/conf/act.ini` in
+this repo. So, using the two conferences we specified earlier, change the line
+to:
 
 ```
 conferences = tpc-2018-glasgow tpc-2017-amsterdam
